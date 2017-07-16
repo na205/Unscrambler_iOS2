@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSMutableArray_Shuffling : NSMutableArray
-
+@interface NSMutableArray (Shuffling)
+- (void)shuffle;
 @end

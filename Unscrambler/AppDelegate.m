@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MaintainPoints.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+//    OptionsController *objOptionsController = [[OptionsController alloc] initWithNibName:@"OptionsController" bundle:nil];
+//    UINavigationController *navCtrlr = [[UINavigationController alloc]initWithRootViewController:objOptionsController];
+////    [self.window setRootViewController:navCtrlr];
+////    navCtrlr.delegate = self;
+////    navCtrlr.navigationBarHidden = YES;
+//    
+//    [self.window addSubview:navCtrlr.view];
+//    [self.window makeKeyAndVisible];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:0] forKey:@"Unscrambler_Score"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+//    [[MaintainPoints sharedInstance] runFirstMethod];
+    [NSThread detachNewThreadSelector:@selector(runFirstMethod) toTarget:[MaintainPoints sharedInstance] withObject:nil];
     return YES;
 }
 

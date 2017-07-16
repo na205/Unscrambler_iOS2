@@ -14,6 +14,15 @@
 		0116A2971EB66C1300768E27 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0116A2961EB66C1300768E27 /* Images.xcassets */; };
 		0116A29A1EB66C1300768E27 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0116A2981EB66C1300768E27 /* LaunchScreen.xib */; };
 		0116A2A61EB66C1400768E27 /* UnscramblerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0116A2A51EB66C1400768E27 /* UnscramblerTests.m */; };
+		0121A1D01EF6AD9F00EDB2EB /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0121A1CF1EF6AD9F00EDB2EB /* TestView.m */; };
+		012815BD1F1B493A00B6CF17 /* NSMutableArray+Shuffling.m in Sources */ = {isa = PBXBuildFile; fileRef = 012815BC1F1B493A00B6CF17 /* NSMutableArray+Shuffling.m */; };
+		012815C61F1BBF3700B6CF17 /* NSString+SortExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 012815C51F1BBF3700B6CF17 /* NSString+SortExtension.m */; };
+		016E19A01F196BEF00BEF673 /* MaintainPoints.m in Sources */ = {isa = PBXBuildFile; fileRef = 016E199F1F196BEF00BEF673 /* MaintainPoints.m */; };
+		016E19A51F19972E00BEF673 /* OptionsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 016E19A41F19972E00BEF673 /* OptionsController.m */; };
+		01A7E3D61F1A0FFA00BFD651 /* words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 01A7E3D51F1A0FFA00BFD651 /* words.txt */; };
+		01A7E3DA1F1A9A8A00BFD651 /* wrong.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 01A7E3D71F1A9A8A00BFD651 /* wrong.jpeg */; };
+		01A7E3DB1F1A9A8A00BFD651 /* correct.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 01A7E3D81F1A9A8A00BFD651 /* correct.jpeg */; };
+		01A7E3E01F1AA14100BFD651 /* proceed2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 01A7E3DF1F1AA14100BFD651 /* proceed2.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +49,20 @@
 		0116A29F1EB66C1300768E27 /* UnscramblerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnscramblerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0116A2A41EB66C1300768E27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0116A2A51EB66C1400768E27 /* UnscramblerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnscramblerTests.m; sourceTree = "<group>"; };
+		0121A1CE1EF6AD9F00EDB2EB /* TestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestView.h; sourceTree = "<group>"; };
+		0121A1CF1EF6AD9F00EDB2EB /* TestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestView.m; sourceTree = "<group>"; };
+		012815BB1F1B493A00B6CF17 /* NSMutableArray+Shuffling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Shuffling.h"; sourceTree = "<group>"; };
+		012815BC1F1B493A00B6CF17 /* NSMutableArray+Shuffling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Shuffling.m"; sourceTree = "<group>"; };
+		012815C41F1BBF3700B6CF17 /* NSString+SortExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SortExtension.h"; sourceTree = "<group>"; };
+		012815C51F1BBF3700B6CF17 /* NSString+SortExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SortExtension.m"; sourceTree = "<group>"; };
+		016E199E1F196BEF00BEF673 /* MaintainPoints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaintainPoints.h; sourceTree = "<group>"; };
+		016E199F1F196BEF00BEF673 /* MaintainPoints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaintainPoints.m; sourceTree = "<group>"; };
+		016E19A31F19972E00BEF673 /* OptionsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsController.h; sourceTree = "<group>"; };
+		016E19A41F19972E00BEF673 /* OptionsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsController.m; sourceTree = "<group>"; };
+		01A7E3D51F1A0FFA00BFD651 /* words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words.txt; sourceTree = "<group>"; };
+		01A7E3D71F1A9A8A00BFD651 /* wrong.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wrong.jpeg; sourceTree = "<group>"; };
+		01A7E3D81F1A9A8A00BFD651 /* correct.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = correct.jpeg; sourceTree = "<group>"; };
+		01A7E3DF1F1AA14100BFD651 /* proceed2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = proceed2.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +106,18 @@
 			children = (
 				0116A28D1EB66C1200768E27 /* AppDelegate.h */,
 				0116A28E1EB66C1200768E27 /* AppDelegate.m */,
+				0121A1CE1EF6AD9F00EDB2EB /* TestView.h */,
+				0121A1CF1EF6AD9F00EDB2EB /* TestView.m */,
 				0116A2901EB66C1200768E27 /* ViewController.h */,
 				0116A2911EB66C1200768E27 /* ViewController.m */,
+				016E199E1F196BEF00BEF673 /* MaintainPoints.h */,
+				016E199F1F196BEF00BEF673 /* MaintainPoints.m */,
+				016E19A31F19972E00BEF673 /* OptionsController.h */,
+				016E19A41F19972E00BEF673 /* OptionsController.m */,
+				012815BB1F1B493A00B6CF17 /* NSMutableArray+Shuffling.h */,
+				012815BC1F1B493A00B6CF17 /* NSMutableArray+Shuffling.m */,
+				012815C41F1BBF3700B6CF17 /* NSString+SortExtension.h */,
+				012815C51F1BBF3700B6CF17 /* NSString+SortExtension.m */,
 				0116A2931EB66C1300768E27 /* Main.storyboard */,
 				0116A2961EB66C1300768E27 /* Images.xcassets */,
 				0116A2981EB66C1300768E27 /* LaunchScreen.xib */,
@@ -96,6 +129,10 @@
 		0116A2891EB66C1200768E27 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				01A7E3DF1F1AA14100BFD651 /* proceed2.jpeg */,
+				01A7E3D71F1A9A8A00BFD651 /* wrong.jpeg */,
+				01A7E3D81F1A9A8A00BFD651 /* correct.jpeg */,
+				01A7E3D51F1A0FFA00BFD651 /* words.txt */,
 				0116A28A1EB66C1200768E27 /* Info.plist */,
 				0116A28B1EB66C1200768E27 /* main.m */,
 			);
@@ -199,8 +236,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01A7E3DA1F1A9A8A00BFD651 /* wrong.jpeg in Resources */,
 				0116A2951EB66C1300768E27 /* Main.storyboard in Resources */,
+				01A7E3DB1F1A9A8A00BFD651 /* correct.jpeg in Resources */,
 				0116A29A1EB66C1300768E27 /* LaunchScreen.xib in Resources */,
+				01A7E3E01F1AA14100BFD651 /* proceed2.jpeg in Resources */,
+				01A7E3D61F1A0FFA00BFD651 /* words.txt in Resources */,
 				0116A2971EB66C1300768E27 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,8 +260,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0121A1D01EF6AD9F00EDB2EB /* TestView.m in Sources */,
 				0116A2921EB66C1200768E27 /* ViewController.m in Sources */,
+				016E19A51F19972E00BEF673 /* OptionsController.m in Sources */,
+				012815C61F1BBF3700B6CF17 /* NSString+SortExtension.m in Sources */,
 				0116A28F1EB66C1200768E27 /* AppDelegate.m in Sources */,
+				016E19A01F196BEF00BEF673 /* MaintainPoints.m in Sources */,
+				012815BD1F1B493A00B6CF17 /* NSMutableArray+Shuffling.m in Sources */,
 				0116A28C1EB66C1200768E27 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,6 +464,7 @@
 				0116A2AB1EB66C1400768E27 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0116A2AC1EB66C1400768E27 /* Build configuration list for PBXNativeTarget "UnscramblerTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +473,7 @@
 				0116A2AE1EB66C1400768E27 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

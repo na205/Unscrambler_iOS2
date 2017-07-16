@@ -8,6 +8,12 @@
 
 #import "ViewController.h"
 
-@interface OptionsController : ViewController
-
+@interface OptionsController : UIViewController
+- (IBAction)gameBtnPressed:(id)sender;
+- (IBAction)scoreBtnPressed:(id)sender;
+- (IBAction)levelBtnPressed:(id)sender;
+- (IBAction)exitBtnPressed:(id)sender;
+@property (weak, nonatomic) IBOutlet UISlider *sliderBtn;
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+- (IBAction)sliderChanged:(id)sender;
 @end

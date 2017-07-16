@@ -8,6 +8,14 @@
 
 #import "NSMutableArray+Shuffling.h"
 
-@implementation NSMutableArray_Shuffling
+@implementation NSMutableArray (Shuffling)
 
+- (void)shuffle {
+    NSUInteger count = [self count];
+    for (uint i = 0; i < count - 1; ++i) {
+        int nElements = (int)count - i;
+        int n = arc4random_uniform(nElements) + i;
+        [self exchangeObjectAtIndex:i withObjectAtIndex:n];
+    }
+}
 @end

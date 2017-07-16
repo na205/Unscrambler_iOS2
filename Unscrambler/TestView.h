@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface TestView : UIView {
-    
-}
-@property (nonatomic) int percent;
+#import "MaintainPoints.h"
+@interface TestView : UIView
+@property (strong) NSMutableArray *rectArray;
+@property (nonatomic) int gridCnt;
 @end
+
