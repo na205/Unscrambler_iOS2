@@ -19,8 +19,7 @@
 @synthesize rectArray;
 
 - (void)drawRect:(CGRect)rect {
-    
-    gridCnt = [[MaintainPoints sharedInstance] getGridCnt];
+    gridCnt = [[MaintainPoints sharedInstance] getGridCnt]-1;
     NSLog(@"hello %d",gridCnt);
     rectArray = [[NSMutableArray alloc] initWithCapacity:0];
     CGFloat orgx = rect.size.width/2;
@@ -52,7 +51,7 @@
     bezierPath2.lineWidth = 2;
     [[UIColor blackColor] setStroke];
     [bezierPath2 stroke];
-    [rectArray addObject:[NSValue valueWithCGRect:CGRectMake(orgx-9, orgy-14, labWidth, labHeight)]];
+    [rectArray addObject:[NSValue valueWithCGRect:CGRectMake(orgx-15, orgy-15, labWidth, labHeight)]];
     for(int i=1;i<=gridCnt;++i) {
         ang = i*ang_temp;
         CGFloat oxU = orgx+radO*sin(ang);
@@ -68,7 +67,7 @@
         [path stroke];
         CGFloat oxM = orgx+radM*sin(ang+ang_mid);
         CGFloat oyM = orgx+radM*cos(ang+ang_mid);
-        [rectArray addObject:[NSValue valueWithCGRect:CGRectMake(oxM-10, oyM-10, labWidth, labHeight)]];
+        [rectArray addObject:[NSValue valueWithCGRect:CGRectMake(oxM-15, oyM-15, labWidth, labHeight)]];
     }
 }
 @end

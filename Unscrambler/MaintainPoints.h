@@ -18,6 +18,7 @@
 @property (nonatomic) NSMutableArray *actualWords;
 @property (nonatomic) NSMutableArray *alphas;
 @property (nonatomic) NSMutableArray *ansWords;
+@property (nonatomic) NSMutableArray *shuffWords;
 @property (nonatomic) NSString *midStr;
 @property (nonatomic) NSString *ansString;
 - (void)setGridCnt:(int)cnt;
@@ -26,5 +27,6 @@
 - (void)addlatestWord:(NSString*)string;
 - (void)runFirstMethod;
 - (void)runInputMethod;
+- (NSMutableArray*)getAnsWordArray;
 @end
 

@@ -17,6 +17,7 @@
 		0121A1D01EF6AD9F00EDB2EB /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0121A1CF1EF6AD9F00EDB2EB /* TestView.m */; };
 		012815BD1F1B493A00B6CF17 /* NSMutableArray+Shuffling.m in Sources */ = {isa = PBXBuildFile; fileRef = 012815BC1F1B493A00B6CF17 /* NSMutableArray+Shuffling.m */; };
 		012815C61F1BBF3700B6CF17 /* NSString+SortExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 012815C51F1BBF3700B6CF17 /* NSString+SortExtension.m */; };
+		012815C81F1EA04900B6CF17 /* answers.txt in Resources */ = {isa = PBXBuildFile; fileRef = 012815C71F1EA04900B6CF17 /* answers.txt */; };
 		016E19A01F196BEF00BEF673 /* MaintainPoints.m in Sources */ = {isa = PBXBuildFile; fileRef = 016E199F1F196BEF00BEF673 /* MaintainPoints.m */; };
 		016E19A51F19972E00BEF673 /* OptionsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 016E19A41F19972E00BEF673 /* OptionsController.m */; };
 		01A7E3D61F1A0FFA00BFD651 /* words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 01A7E3D51F1A0FFA00BFD651 /* words.txt */; };
@@ -55,6 +56,7 @@
 		012815BC1F1B493A00B6CF17 /* NSMutableArray+Shuffling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Shuffling.m"; sourceTree = "<group>"; };
 		012815C41F1BBF3700B6CF17 /* NSString+SortExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SortExtension.h"; sourceTree = "<group>"; };
 		012815C51F1BBF3700B6CF17 /* NSString+SortExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SortExtension.m"; sourceTree = "<group>"; };
+		012815C71F1EA04900B6CF17 /* answers.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = answers.txt; sourceTree = "<group>"; };
 		016E199E1F196BEF00BEF673 /* MaintainPoints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaintainPoints.h; sourceTree = "<group>"; };
 		016E199F1F196BEF00BEF673 /* MaintainPoints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaintainPoints.m; sourceTree = "<group>"; };
 		016E19A31F19972E00BEF673 /* OptionsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsController.h; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				01A7E3DF1F1AA14100BFD651 /* proceed2.jpeg */,
 				01A7E3D71F1A9A8A00BFD651 /* wrong.jpeg */,
 				01A7E3D81F1A9A8A00BFD651 /* correct.jpeg */,
+				012815C71F1EA04900B6CF17 /* answers.txt */,
 				01A7E3D51F1A0FFA00BFD651 /* words.txt */,
 				0116A28A1EB66C1200768E27 /* Info.plist */,
 				0116A28B1EB66C1200768E27 /* main.m */,
@@ -240,6 +243,7 @@
 				0116A2951EB66C1300768E27 /* Main.storyboard in Resources */,
 				01A7E3DB1F1A9A8A00BFD651 /* correct.jpeg in Resources */,
 				0116A29A1EB66C1300768E27 /* LaunchScreen.xib in Resources */,
+				012815C81F1EA04900B6CF17 /* answers.txt in Resources */,
 				01A7E3E01F1AA14100BFD651 /* proceed2.jpeg in Resources */,
 				01A7E3D61F1A0FFA00BFD651 /* words.txt in Resources */,
 				0116A2971EB66C1300768E27 /* Images.xcassets in Resources */,

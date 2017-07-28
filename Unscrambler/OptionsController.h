@@ -13,7 +13,10 @@
 - (IBAction)scoreBtnPressed:(id)sender;
 - (IBAction)levelBtnPressed:(id)sender;
 - (IBAction)exitBtnPressed:(id)sender;
+- (IBAction)instructPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UISlider *sliderBtn;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *instrLabel;
+
 - (IBAction)sliderChanged:(id)sender;
 @end

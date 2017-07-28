@@ -12,6 +12,7 @@
     NSTimer *mytimer;
     NSString *ansHold;
     NSInteger myScore;
+    BOOL firstVis;
 }
 
 @end
@@ -19,8 +20,12 @@
 @implementation ViewController
 @synthesize testView;
 @synthesize listWords;
+@synthesize ansWords;
+@synthesize labelArr;
+@synthesize scoreLabel;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    firstVis = false;
     _gridCnt = [[MaintainPoints sharedInstance] getGridCnt];
 }
 
@@ -63,7 +68,11 @@
 
 - (void)fillCircle {
     NSLog(@"fillCircle");
+//    [testView setNeedsDisplay];
     [[MaintainPoints sharedInstance] runInputMethod];
+    ansWords = [[NSMutableArray alloc] initWithArray:[[MaintainPoints sharedInstance] getAnsWordArray]];
+    NSString *tempAns = [[MaintainPoints sharedInstance] getAnsString];
+    NSLog(@"answords2 %@",ansWords);
     [_secLabel setText:@"00"];
     [_minLabel setText:@"00"];
     listWords = [[NSMutableArray alloc] initWithCapacity:0];
@@ -73,14 +82,14 @@
                                              userInfo:nil
                                               repeats:YES];
     NSMutableArray *array = [NSMutableArray arrayWithArray:[testView rectArray]];
-    NSString *tempAns = [[MaintainPoints sharedInstance] getAnsString];
     NSLog(@"input is %@",tempAns);
     for(int i=0;i<[array count];++i) {
         CGRect rect = [[array objectAtIndex:i] CGRectValue];
         UILabel *gridLabel = [[UILabel alloc] initWithFrame:rect];
         gridLabel.text = [tempAns substringWithRange:NSMakeRange(i,1)];
-        gridLabel.font=[UIFont systemFontOfSize:30.0];
+        gridLabel.font=[UIFont systemFontOfSize:25.0];
         gridLabel.textColor=[UIColor blackColor];
+        gridLabel.textAlignment=NSTextAlignmentCenter;
         gridLabel.backgroundColor=[UIColor clearColor];
         [testView addSubview:gridLabel];
     }
@@ -119,6 +128,9 @@
     [mytimer invalidate];
     mytimer = nil;
     if(buttonIndex == [alertView cancelButtonIndex]) {
+        for(UILabel *view in testView.subviews) {
+            [view removeFromSuperview];
+        }
         [self fillCircle];
     } else {
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:(int)myScore] forKey:@"Unscrambler_Score"];
@@ -131,20 +143,23 @@
 
 - (void)resetCorrectBtn {
     sleep(1);
-    [listWords addObject:[_ansLabel text]];
+    if([listWords indexOfObject:ansHold] == NSNotFound) {
+        [listWords addObject:ansHold];
+        int val = (int)[ansHold length];
+        if(val == _gridCnt) {
+            myScore += 100;
+        } else {
+            int diff = (_gridCnt - val)*10;
+            myScore += (80-diff);
+        }
+        [scoreLabel setText:[NSString stringWithFormat:@"%ld",(long)myScore]];
+    }
     UIImage *btnImage = [UIImage imageNamed:@"proceed2.jpeg"];
     [_ansBtn setImage:btnImage forState:UIControlStateNormal];
     [self performSelectorOnMainThread:@selector(resetAnsLabel) withObject:self waitUntilDone:YES];
 }
 
 - (void)resetAnsLabel {
-    int val = (int)[ansHold length];
-    if(val == _gridCnt) {
-        myScore += 100;
-    } else {
-        int diff = (_gridCnt - val)*10;
-        myScore += (80-diff);
-    }
     [_wordCollection reloadData];
     [_ansLabel setText:@""];
 }
@@ -156,8 +171,8 @@
 }
 
 - (IBAction)ansBtnPressed:(id)sender {
-    if(true) {
-        ansHold = [[NSString alloc] initWithString:[_ansLabel text]];
+    ansHold = [[NSString alloc] initWithString:[[_ansLabel text] uppercaseString]];
+    if([ansWords indexOfObject:ansHold] != NSNotFound) {
         [NSThread detachNewThreadSelector:@selector(resetCorrectBtn) toTarget:self withObject:nil];
         UIImage *btnImage = [UIImage imageNamed:@"correct.jpeg"];
         [_ansBtn setImage:btnImage forState:UIControlStateNormal];

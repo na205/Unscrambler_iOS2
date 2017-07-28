@@ -12,7 +12,10 @@
 
 @interface ViewController : UIViewController
 @property (strong) NSMutableArray *listWords;
+@property (strong) NSMutableArray *ansWords;
+@property (strong) NSMutableArray *labelArr;
 @property (weak, nonatomic) IBOutlet TestView *testView;
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UITextField *ansLabel;
 @property (weak, nonatomic) IBOutlet UILabel *minLabel;
 @property (weak, nonatomic) IBOutlet UILabel *secLabel;

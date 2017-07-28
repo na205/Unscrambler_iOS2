@@ -24,6 +24,7 @@
 @synthesize midStr;
 @synthesize ansWords;
 @synthesize ansString;
+@synthesize shuffWords;
 + (instancetype)sharedInstance {
     static MaintainPoints *sharedInstance = nil;
     static dispatch_once_t onceToken;
@@ -46,103 +47,75 @@
 
 - (void)runFirstMethod {
     NSLog(@"runFirstMethod");
-    alphas = [[NSMutableArray alloc] initWithObjects:@"a",@"b",@"c",@"d",@"e",@"f",@"g",@"h",@"i",@"j",@"k",@"l",@"m",@"n",@"o",@"p",@"q",@"r",@"s",@"t",@"u",@"v",@"w",@"x",@"y",@"z",nil];
-    acronymDicto = [[NSMutableDictionary alloc] initWithCapacity:0];
+    alphas = [[NSMutableArray alloc] initWithObjects:@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z",nil];
+    finalDicto = [[NSMutableDictionary alloc] initWithCapacity:0];
     usedWords = [[NSMutableArray alloc] initWithCapacity:0];
-    acronymWords = [[NSMutableArray alloc] initWithCapacity:0];
-    NSString* filePath = @"words";
+    shuffWords = [[NSMutableArray alloc] initWithCapacity:0];
+    NSString* filePath = @"answers";
     NSString* fileRoot = [[NSBundle mainBundle] pathForResource:filePath ofType:@"txt"];
     NSString* fileCnts = [NSString stringWithContentsOfFile:fileRoot encoding:NSUTF8StringEncoding error:nil];
     NSArray* allLinedStrings = [fileCnts componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
     actualWords = [[NSMutableArray alloc] initWithArray:allLinedStrings];
+    NSLog(@"count is %lu",(unsigned long)[allLinedStrings count]);
     for(int i=0;i<[allLinedStrings count];++i) {
-        NSString *tempWord = sort_str([allLinedStrings objectAtIndex:i]);
-        [acronymDicto setObject:[allLinedStrings objectAtIndex:i] forKey:tempWord];
-        [acronymWords addObject:tempWord];
-        NSLog(@"sorted %@",tempWord);
+        NSArray* myArray = [[allLinedStrings objectAtIndex:i] componentsSeparatedByString:@" "];
+        NSMutableArray *tempArr = [[NSMutableArray alloc] initWithArray:myArray];
+        [tempArr removeLastObject];
+        [finalDicto setObject:tempArr forKey:[myArray objectAtIndex:0]];
+        [shuffWords addObject:[myArray objectAtIndex:0]];
     }
-    [actualWords shuffle];
-    for(int i=0;i<[actualWords count];++i) {
-        NSString *keyWord = sort_str([actualWords objectAtIndex:i]);
-        NSMutableArray *tempArr = [[NSMutableArray alloc] initWithCapacity:0];
-        for(int j=0;j<[acronymWords count];++j) {
-            NSString *valueWord = [acronymWords objectAtIndex:j];
-            if([keyWord rangeOfString:valueWord].location != NSNotFound) {
-                [tempArr addObject:[acronymDicto valueForKey:valueWord]];
-            }
-        }
-        if([tempArr count] > 1) {
-            NSLog(@"finished2 %@",keyWord);
-            [finalDicto setObject:tempArr forKey:keyWord];
-        }
-    }
-    NSLog(@"finished %@",finalDicto);
 }
 
 - (void)runInputMethod {
     ansWords = [[NSMutableArray alloc] initWithCapacity:0];
-    for(int i=0;i<[actualWords count];++i) {
-        NSString *keyWord = [actualWords objectAtIndex:i];
+    [shuffWords shuffle];
+    for(id keyWord in shuffWords) {
         if([keyWord length] == gridC && [usedWords indexOfObject:keyWord] == NSNotFound) {
-            if([finalDicto objectForKey:keyWord]) {
-                ansString = [[NSString alloc] initWithString:[finalDicto objectForKey:keyWord]];
-                int mxId=0, mxCh=0;
-                NSMutableArray *tempArr = (NSMutableArray*)[finalDicto objectForKey:keyWord];
-                int wcnt[26] = {0};
-                for(int j=0;j<[tempArr count];++j) {
-                    const char *c = [[tempArr objectAtIndex:j] UTF8String];
-                    int ccnt[26]={0};
-                    for(int k=0;k<strlen(c);++i) {
-                        if(ccnt[c[k]-'a']==0) {
-                            ccnt[c[k]-'a']=1;
-                        }
-                    }
-                    for(int k=0;k<26;++k) {
-                        wcnt[k]+=ccnt[k];
+            ansString = [[NSString alloc] initWithString:keyWord];
+            int mxId=0, mxCh=0;
+            NSMutableArray *tempArr = (NSMutableArray*)[finalDicto objectForKey:keyWord];
+            int wcnt[26] = {0};
+            for(int j=0;j<[tempArr count];++j) {
+                const char *c = [[tempArr objectAtIndex:j] UTF8String];
+                int ccnt[26]={0};
+                for(int k=0;k<strlen(c);++k) {
+                    if(ccnt[c[k]-'A'] == 0) {
+                        ccnt[c[k]-'A']=1;
                     }
                 }
-                for(int j=0;j<26;++j) {
-                    if(wcnt[j] > mxCh) {
-                        mxCh = wcnt[j];
-                        mxId = j;
-                    }
+                for(int k=0;k<26;++k) {
+                    wcnt[k]+=ccnt[k];
                 }
-                midStr = [[NSString alloc] initWithString:[alphas objectAtIndex:mxId]];
-                for(int j=0;j<[tempArr count];++j) {
-                    NSString *keyWord = [tempArr objectAtIndex:j];
-                    if([keyWord rangeOfString:midStr].location != NSNotFound) {
-                        [ansWords addObject:keyWord];
-                    }
-                }
-                NSRange range = [ansString rangeOfString:midStr];
-                NSString *tempAns = [NSString stringWithFormat:@"%@%@%@",midStr,[ansString substringWithRange:NSMakeRange(0, range.location-1)],[ansString substringWithRange:NSMakeRange(range.location+1, [ansString length])]];
-                ansString = [[NSString alloc] initWithString:tempAns];
             }
+            for(int j=0;j<26;++j) {
+                if(wcnt[j] > mxCh) {
+                    mxCh = wcnt[j];
+                    mxId = j;
+                }
+            }
+            midStr = [[NSString alloc] initWithString:[alphas objectAtIndex:mxId]];
+            for(int j=0;j<[tempArr count];++j) {
+                NSString *keyWord = [tempArr objectAtIndex:j];
+                if([keyWord rangeOfString:midStr].location != NSNotFound) {
+                    [ansWords addObject:keyWord];
+                }
+            }
+            NSLog(@"log4 %@ %@",ansString,midStr);
+            [usedWords addObject:ansString];
+            NSRange range = [ansString rangeOfString:midStr];
+            NSString *tempStr = [NSString stringWithFormat:@"%@%@",[ansString substringWithRange:NSMakeRange(0, range.location)],[ansString substringWithRange:NSMakeRange(range.location+1, [ansString length]-range.location-1)]];
+            NSString *scrambled = [NSString scrambleString:tempStr];
+            NSString *tempAns = [NSString stringWithFormat:@"%@%@",midStr,scrambled];
+            ansString = [[NSString alloc] initWithString:tempAns];
+            break;
         }
     }
 }
-
+- (NSMutableArray*)getAnsWordArray {
+    return ansWords;
+}
 - (NSString*)getAnsString {
     return ansString;
 }
 
-int char_compare(const char* a, const char* b) {
-    if(*a < *b) {
-        return -1;
-    } else if(*a > *b) {
-        return 1;
-    } else {
-        return 0;
-    }
-}
-
-NSString *sort_str(NSString *unsorted) {
-    int len = (int)[unsorted length] + 1;
-    char *cstr = malloc(len);
-    [unsorted getCString:cstr maxLength:len encoding:NSISOLatin1StringEncoding];
-    qsort(cstr, len - 1, sizeof(char), char_compare);
-    NSString *sorted = [NSString stringWithCString:cstr encoding:NSISOLatin1StringEncoding];
-    free(cstr);
-    return sorted;
-}
 @end

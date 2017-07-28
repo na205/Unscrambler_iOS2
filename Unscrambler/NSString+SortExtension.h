@@ -10,4 +10,5 @@
 
 @interface NSString (SortExtension)
 - (NSString *)sorted;
++ (NSString *)scrambleString:(NSString *)toScramble;
 @end
