@@ -13,6 +13,7 @@
     NSString *ansHold;
     NSInteger myScore;
     BOOL firstVis;
+    int fixedCount;
 }
 
 @end
@@ -23,6 +24,7 @@
 @synthesize ansWords;
 @synthesize labelArr;
 @synthesize scoreLabel;
+@synthesize possLabel;
 - (void)viewDidLoad {
     [super viewDidLoad];
     firstVis = false;
@@ -71,10 +73,18 @@
 //    [testView setNeedsDisplay];
     [[MaintainPoints sharedInstance] runInputMethod];
     ansWords = [[NSMutableArray alloc] initWithArray:[[MaintainPoints sharedInstance] getAnsWordArray]];
+    fixedCount = 0;
+    if([ansWords count] > 15) {
+        fixedCount = 15;
+    } else {
+        fixedCount = (int)[ansWords count];
+    }
+    [possLabel setText:[NSString stringWithFormat:@"%d",fixedCount]];
     NSString *tempAns = [[MaintainPoints sharedInstance] getAnsString];
     NSLog(@"answords2 %@",ansWords);
     [_secLabel setText:@"00"];
     [_minLabel setText:@"00"];
+    [scoreLabel setText:@"0"];
     listWords = [[NSMutableArray alloc] initWithCapacity:0];
     mytimer = [NSTimer scheduledTimerWithTimeInterval:1.0
                                                target:self
@@ -162,6 +172,12 @@
 - (void)resetAnsLabel {
     [_wordCollection reloadData];
     [_ansLabel setText:@""];
+    if([listWords count] >= fixedCount) {
+        for(UILabel *view in testView.subviews) {
+            [view removeFromSuperview];
+        }
+        [self fillCircle];
+    }
 }
 
 - (void)resetWrongBtn {

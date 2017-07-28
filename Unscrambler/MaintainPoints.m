@@ -100,7 +100,6 @@
                     [ansWords addObject:keyWord];
                 }
             }
-            NSLog(@"log4 %@ %@",ansString,midStr);
             [usedWords addObject:ansString];
             NSRange range = [ansString rangeOfString:midStr];
             NSString *tempStr = [NSString stringWithFormat:@"%@%@",[ansString substringWithRange:NSMakeRange(0, range.location)],[ansString substringWithRange:NSMakeRange(range.location+1, [ansString length]-range.location-1)]];

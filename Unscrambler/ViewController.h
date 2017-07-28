@@ -28,5 +28,6 @@
 - (void)fillCircle;
 - (void)resetCorrectBtn;
 - (void)resetWrongBtn;
+@property (weak, nonatomic) IBOutlet UILabel *possLabel;
 
 @end
