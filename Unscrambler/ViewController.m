@@ -79,13 +79,15 @@
     } else {
         fixedCount = (int)[ansWords count];
     }
+    listWords = [[NSMutableArray alloc] initWithCapacity:0];
+    [_wordCollection reloadData];
     [possLabel setText:[NSString stringWithFormat:@"%d",fixedCount]];
     NSString *tempAns = [[MaintainPoints sharedInstance] getAnsString];
     NSLog(@"answords2 %@",ansWords);
     [_secLabel setText:@"00"];
     [_minLabel setText:@"00"];
     [scoreLabel setText:@"0"];
-    listWords = [[NSMutableArray alloc] initWithCapacity:0];
+    [_ansLabel setText:@""];
     mytimer = [NSTimer scheduledTimerWithTimeInterval:1.0
                                                target:self
                                              selector:@selector(targetMethod)
